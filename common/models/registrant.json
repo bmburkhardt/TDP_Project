@@ -1,0 +1,30 @@
+{
+  "name": "registrant",
+  "plural": "registrants",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "registrantId": {
+      "type": "belongsTo",
+      "model": "person",
+      "foreignKey": ""
+    },
+    "convention": {
+      "type": "belongsTo",
+      "model": "convention",
+      "foreignKey": ""
+    },
+    "subConventions": {
+      "type": "hasMany",
+      "model": "subConvention",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

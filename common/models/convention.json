@@ -1,0 +1,38 @@
+{
+  "name": "convention",
+  "plural": "conventions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "time": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "subConventions": {
+      "type": "hasMany",
+      "model": "subConvention",
+      "foreignKey": "conventionId"
+    },
+    "registrants": {
+      "type": "hasMany",
+      "model": "registrant",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
