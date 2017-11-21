@@ -7,13 +7,13 @@ html, body {
 }
 .home h1{
   text-align: center;
+  background: -webkit-linear-gradient(45deg,red,white,blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .home h2{
   text-align: center;
-  background: -webkit-linear-gradient(45deg,red,white,blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .main h2 {
