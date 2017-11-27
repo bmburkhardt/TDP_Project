@@ -18,8 +18,8 @@ html, body {
 
 .main h2 {
   text-align: center;
-  color: #fff0;
-  background-color:#3330;
+  color: #ffff;
+  background-color:#333f;
   padding: 10px;
   width: 90%;
   height: 80%;
@@ -37,4 +37,26 @@ html, body {
   color: #ffff;
   text-decoration: none;
   transition: background 1000ms,color 1000ms;
+}
+
+#parent {
+    background-color:#333f;
+    color: #ffff;
+    width: 90%;
+    height: 80%;
+    margin:auto;
+}
+.block {
+}
+.center {
+
+    text-align:center;
+}
+.left {
+
+    text-align:left;
+}
+.right {
+
+    text-align:right;
 }

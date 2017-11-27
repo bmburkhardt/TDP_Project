@@ -1,12 +1,22 @@
-var app = angular.module('ConventionApp', ['ngRoute']);
+var app = angular.module('conventionApp',['ngRoute']);
 
 app.config(function($routeProvider){
-  $routeProvider
-  .when('/',{
-    controller: 'HomeController',
-    templateUrl: 'views/home.html'
-  })
-  .otherwise({
-    redirectTo: '/'
-  });
+	$routeProvider
+
+	.when('/',{
+		templateUrl : 'views/home.html',
+		controller  : 'HomeController'
+	})
+
+	.when('/conventions',{
+		templateUrl : 'views/conventions.html',
+		controller  : 'ConventionsController'
+	})
+
+	.when('/signUp',{
+		templateUrl : 'views/signUp.html',
+		controller  : 'SignUpController'
+	})
+
+	.otherwise({redirectTo : '/'});
 });

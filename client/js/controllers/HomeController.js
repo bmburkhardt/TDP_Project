@@ -1,5 +1,3 @@
-app.controller('HomeController', ['$scope', 'photos', function($scope, photos) {
-  photos.success(function(data) {
-    $scope.photos = data;
-  });
-}]);
+app.controller('HomeController',function($scope){
+	$scope.message = 'Hello from HomeController';
+});
