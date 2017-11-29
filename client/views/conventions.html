@@ -1,3 +1,27 @@
-<div>
-	<p>{{message}}</p>
+<div align="center">
+	<md-content flex layout-padding>
+		
+	</md-content>
+
+	<md-card class="md-card" ng-repeat="convention in conventions">
+        <img ng-src="{{convention.image}}" class="md-card-image" scale="5%" alt="Washed Out">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{convention.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>
+            Location: {{convention.location}}
+          </p>
+          <p>
+            {{convention.description}}
+          </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+
 </div>

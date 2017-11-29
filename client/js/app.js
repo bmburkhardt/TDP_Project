@@ -1,4 +1,4 @@
-var app = angular.module('conventionApp',['ngRoute']);
+var app = angular.module('conventionApp',['ngRoute','ngMaterial']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -13,7 +13,7 @@ app.config(function($routeProvider){
 		controller  : 'ConventionsController'
 	})
 
-	.when('/signUp',{
+	.when('/signup',{
 		templateUrl : 'views/signUp.html',
 		controller  : 'SignUpController'
 	})
