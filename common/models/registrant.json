@@ -9,19 +9,19 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "registrantId": {
+    "person": {
       "type": "belongsTo",
       "model": "person",
       "foreignKey": ""
     },
-    "convention": {
-      "type": "belongsTo",
+    "conventions": {
+      "type": "hasOne",
       "model": "convention",
       "foreignKey": ""
     },
-    "subConventions": {
+    "subconventions": {
       "type": "hasMany",
-      "model": "subConvention",
+      "model": "subconvention",
       "foreignKey": ""
     }
   },
