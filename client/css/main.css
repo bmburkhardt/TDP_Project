@@ -66,11 +66,11 @@ html, body {
   background-color: #FFF2E0; }
 
 .md-card-image{
-  max-width:50%;
+  max-width:auto;
   height:auto;
 }
 .md-card{
-  width:50%;
+  max-width:500px;
   height:auto;
 }
 
