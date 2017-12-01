@@ -1,8 +1,3 @@
-<script>
-function switch() {
-  toggleCollapse = !toggleCollapse;
-}
-</script>
 
 <div align="center">
 	<md-content flex layout-padding>
@@ -13,17 +8,17 @@ function switch() {
     <script>collapse[convention.name]=false;</script>
     <md-card-header>
       <md-card-avatar>
-        <img src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg"/ >
+        <img src="assets/icons/D-circle-logo-favicon.png">
       </md-card-avatar>
       <md-card-header-text>
         <span class="left"> &nbsp;&nbsp;{{convention.name}}</span>
-        <span class="left"> &nbsp;&nbsp;{{convention.time}}</span>
+        <span class="left"> &nbsp;&nbsp;{{convention.location}}&nbsp;|&nbsp;{{convention.date}}&nbsp;|&nbsp;{{convention.time}}&nbsp;&nbsp;</span>
       </md-card-header-text>
       <md-button class="md-icon-button md-primary" aria-label="More" ng-click="toggle(convention.name)">
         <i class="material-icons">expand_more</i>
       </md-button>
     </md-card-header>
-    <img ng-src="{{convention.image}}" class="md-card-image" alt="Washed Out" ng-show="collapse[convention.name]">
+    <img ng-src="assets/betterConvention.jpg" class="md-card-image" ng-show="collapse[convention.name]">
     <md-card-titleng ng-show="collapse[convention.name]">
       <md-card-title-text>
         <span class="md-headline">{{convention.name}}</span>
@@ -31,14 +26,16 @@ function switch() {
     </md-card-title>
     <md-card-content ng-show="collapse[convention.name]">
       <p>
-        Location: {{convention.location}}
+        Location: {{convention.location}}<br>
+        Date:     {{convention.date}}<br>
+        Time:     {{convention.time}}<br>
       </p>
+        {{convention.description}}
       <p>
       </p>
     </md-card-content>
     <md-card-actions layout="row" layout-align="end center" ng-show="collapse[convention.name]">
-      <md-button>Action 1</md-button>
-      <md-button>Action 2</md-button>
+      <md-button >Sign Up</md-button>
     </md-card-actions>
   </md-card>
 

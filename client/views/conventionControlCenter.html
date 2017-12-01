@@ -1,0 +1,84 @@
+
+<div align="center">
+  <md-card class="md-card">
+      <md-card-header>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Conventions</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <md-button class="md-icon-button material-icons md-primary" aria-label="More" ng-click="toggleCon()">
+                <i class="material-icons">add_circle</i>
+            </md-button>
+          </md-card-title-media>
+        </md-card-title>       
+      </md-card-header>
+      <md-card-content>
+        <md-content class="md-no-momentum" ng-show="toggleNewConvention">
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="convention.name" type="text" md-placeholder="Convention Name">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+              <md-datepicker ng-model="convention.date" md-placeholder="Enter date"></md-datepicker>
+              <input ng-model="convention.date" type="text" md-placeholder="Convention Date">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="user.time" type="time" ng-required="true">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="convention.location" type="text" placeholder="Location" >
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block">
+              <textarea ng-model="convention.description" md-maxlength="150" rows="10" width="75%"></textarea>
+            </md-input-container>
+            <md-button class="md-icon-button material-icons md-primary" aria-label="More" ng-click="post()">
+                <i class="material-icons">add_circle</i>
+            </md-button>
+        </md-content>
+      </md-card-content>
+  </md-card>
+
+
+	<md-card class="md-card" ng-repeat="convention in conventions">
+    <script>collapse[convention.name]=false;</script>
+    <md-card-header>
+      <md-card-avatar>
+        <img src="assets/icons/D-circle-logo-favicon.png">
+      </md-card-avatar>
+      <md-card-header-text>
+        <span class="left"> &nbsp;&nbsp;{{convention.name}}</span>
+        <span class="left"> &nbsp;&nbsp;{{convention.location}}&nbsp;|&nbsp;{{convention.date}}&nbsp;|&nbsp;{{convention.time}}&nbsp;&nbsp;</span>
+      </md-card-header-text>
+      <md-button class="md-icon-button md-primary" aria-label="More" ng-click="toggle(convention.name)">
+        <i class="material-icons">expand_more</i>
+      </md-button>
+    </md-card-header>
+    <img ng-src="assets/betterConvention.jpg" class="md-card-image" ng-show="collapse[convention.name]">
+    <md-card-titleng ng-show="collapse[convention.name]">
+      <md-card-title-text>
+        <span class="md-headline">{{convention.name}}</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content ng-show="collapse[convention.name]">
+      <p>
+        Location: {{convention.location}}<br>
+        Date:     {{convention.date}}<br>
+        Time:     {{convention.time}}<br>
+      </p>
+        {{convention.description}}
+      <p>
+      </p>
+    </md-card-content>
+    
+    <md-card-actions layout="row" layout-align="end center" ng-show="collapse[convention.name]">
+      <md-button ng-click="delete(convention.id)"><i class="material-icons">delete</i> Delete Convention</md-button>
+    </md-card-actions>
+  </md-card>
+
+  
+
+</div>

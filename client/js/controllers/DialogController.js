@@ -1,4 +1,4 @@
-app.controller('ConventionsController',function($scope,$http){
+app.controller('DialogController',function($scope,$http){
 	$scope.message = 'Hello from ConventionsController';
 
 	$http.get("/api/conventions")

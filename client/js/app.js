@@ -18,5 +18,15 @@ app.config(function($routeProvider){
 		controller  : 'SignUpController'
 	})
 
+	.when('/admincontrols',{
+		templateUrl : 'views/adminControls.html',
+		controller  : 'AdminControlsController'
+	})
+
+	.when('/conventionControlCenter',{
+		templateUrl : 'views/conventionControlCenter.html',
+		controller  : 'ConventionControlCenterController'
+	})
+
 	.otherwise({redirectTo : '/'});
 });

@@ -74,6 +74,15 @@ html, body {
   height:auto;
 }
 
+.rtaln {
+
+    right:0;
+}
+.fill-space {
+  // This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+}
 
 
 /*------------------EXAMPLE CSS-----------------*/
@@ -237,3 +246,22 @@ span.name {
   .carddemoBasicUsage .card-media {
   background-color: #999999; }
 
+.inputdemoIcons {
+  /*
+.right-icon {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  left: auto;
+  margin-top: 0;
+}
+*/ }
+  .inputdemoIcons .inputIconDemo {
+    min-height: 48px; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue; }
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+    color: red; }

@@ -18,6 +18,14 @@
     "location": {
       "type": "string",
       "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
@@ -30,6 +38,11 @@
     "registrants": {
       "type": "hasMany",
       "model": "registrant",
+      "foreignKey": ""
+    },
+    "person": {
+      "type": "hasMany",
+      "model": "person",
       "foreignKey": ""
     }
   },

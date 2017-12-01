@@ -18,11 +18,6 @@
       "type": "belongsTo",
       "model": "convention",
       "foreignKey": ""
-    },
-    "subConventions": {
-      "type": "hasMany",
-      "model": "subConvention",
-      "foreignKey": ""
     }
   },
   "acls": [],

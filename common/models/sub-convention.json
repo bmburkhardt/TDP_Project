@@ -35,6 +35,11 @@
       "type": "hasMany",
       "model": "registrant",
       "foreignKey": ""
+    },
+    "person": {
+      "type": "hasMany",
+      "model": "person",
+      "foreignKey": ""
     }
   },
   "acls": [],
