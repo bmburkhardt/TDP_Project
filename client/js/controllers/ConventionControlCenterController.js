@@ -29,11 +29,11 @@ app.controller('ConventionControlCenterController', function($scope,$http){
 	$scope.toggleNewConvention = false;
 
 	$scope.convention = {
-      "name": "string",
-	  "time": "string",
-	  "location": "string",
-	  "description": "string",
-	  "date": "string"
+      "name": undefined,
+	  "time": undefined,
+	  "location": undefined,
+	  "description": undefined,
+	  "date": undefined
     };
 
 
