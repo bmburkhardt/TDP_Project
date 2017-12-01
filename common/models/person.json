@@ -12,8 +12,7 @@
       "required": true
     },
     "middleName": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "lastName": {
       "type": "string",
@@ -25,6 +24,10 @@
     },
     "age": {
       "type": "number",
+      "required": true
+    },
+    "senateDistrictCounty": {
+      "type": "string",
       "required": true
     },
     "email": {
@@ -47,6 +50,14 @@
       "type": "number",
       "required": true
     },
+    "presidentialPref": {
+      "type": "string",
+      "required": true
+    },
+    "delegateType": {
+      "type": "string",
+      "required": true
+    },
     "homePhone": {
       "type": "string",
       "required": true
@@ -55,21 +66,38 @@
       "type": "string",
       "required": true
     },
+    "phonePref": {
+      "type": "number",
+      "required": true
+    },
+    "ethnicity": {
+      "type": "string",
+      "required": true,
+      "default": "true"
+    },
     "lgbt": {
       "type": "boolean",
       "required": true
     },
-    "disabled": {
-      "type": "string"
-    },
     "veteran": {
       "type": "boolean",
       "required": true
+    },
+    "disabled": {
+      "type": "string",
+      "required": true
+    },
+    "caucusesAttending": {
+      "type": "string",
+      "required": true
+    },
+    "attendedCountyConvention": {
+      "type": "boolean"
     }
   },
   "validations": [],
   "relations": {
-    "registrant": {
+    "registrantId": {
       "type": "belongsTo",
       "model": "registrant",
       "foreignKey": ""

@@ -1,6 +1,6 @@
 {
-  "name": "subconvention",
-  "plural": "subconventions",
+  "name": "subConvention",
+  "plural": "subConventions",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -29,7 +29,7 @@
     "convention": {
       "type": "belongsTo",
       "model": "convention",
-      "foreignKey": ""
+      "foreignKey": "conventionId"
     },
     "registrants": {
       "type": "hasMany",
