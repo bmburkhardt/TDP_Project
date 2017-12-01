@@ -43,7 +43,7 @@
     "dataSource": "db",
     "public": true
   },
-  "subconvention": {
+  "subConvention": {
     "dataSource": "db",
     "public": true
   },

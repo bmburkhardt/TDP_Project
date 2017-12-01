@@ -1,5 +1,3 @@
-# TDP_Project
-
 Model overview
 ==============
 

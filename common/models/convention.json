@@ -22,10 +22,10 @@
   },
   "validations": [],
   "relations": {
-    "subconventions": {
+    "subConventions": {
       "type": "hasMany",
-      "model": "subconvention",
-      "foreignKey": ""
+      "model": "subConvention",
+      "foreignKey": "conventionId"
     },
     "registrants": {
       "type": "hasMany",
