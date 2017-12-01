@@ -1,5 +1,5 @@
 
-<div align="center">
+<div align="center" style="-webkit-overflow-scrolling: auto;">
   <md-card class="md-card">
       <md-card-header>
         <md-card-title>
@@ -16,24 +16,23 @@
       <md-card-content>
         <md-content class="md-no-momentum" ng-show="toggleNewConvention">
             <md-input-container md-no-float class="md-block">
-              <input ng-model="convention.name" type="text" md-placeholder="Convention Name">
+              Convention Name: <input ng-model="convention.name" type="text" md-placeholder="Convention Name">
             </md-input-container>
 
             <md-input-container md-no-float class="md-block">
-              <md-datepicker ng-model="convention.date" md-placeholder="Enter date"></md-datepicker>
-              <input ng-model="convention.date" type="text" md-placeholder="Convention Date">
+              Convention Date: <input ng-model="convention.date" type="text" md-placeholder="Convention Date">
             </md-input-container>
 
             <md-input-container md-no-float class="md-block">
-              <input ng-model="user.time" type="time" ng-required="true">
+              Time: <input ng-model="user.time" type="time" ng-required="true">
             </md-input-container>
 
             <md-input-container md-no-float class="md-block">
-              <input ng-model="convention.location" type="text" placeholder="Location" >
+              Convention Location: <input ng-model="convention.location" type="text" placeholder="Location" >
             </md-input-container>
 
             <md-input-container md-no-float class="md-block">
-              <textarea ng-model="convention.description" md-maxlength="150" rows="10" width="75%"></textarea>
+              Convention Description:<br><textarea ng-model="convention.description" md-maxlength="700" rows="10"></textarea>
             </md-input-container>
             <md-button class="md-icon-button material-icons md-primary" aria-label="More" ng-click="post()">
                 <i class="material-icons">add_circle</i>

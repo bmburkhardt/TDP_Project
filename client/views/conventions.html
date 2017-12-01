@@ -35,7 +35,7 @@
       </p>
     </md-card-content>
     <md-card-actions layout="row" layout-align="end center" ng-show="collapse[convention.name]">
-      <md-button >Sign Up</md-button>
+      <md-button href="#/signup" ng-click="location.href=this.href+'/'+convention.id;return false;">Sign Up</md-button>
     </md-card-actions>
   </md-card>
 
