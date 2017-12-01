@@ -17,7 +17,7 @@ function switch() {
       </md-card-avatar>
       <md-card-header-text>
         <span class="left"> &nbsp;&nbsp;{{convention.name}}</span>
-        <span class="left"> &nbsp;&nbsp;Material</span>
+        <span class="left"> &nbsp;&nbsp;{{convention.time}}</span>
       </md-card-header-text>
       <md-button class="md-icon-button md-primary" aria-label="More" ng-click="toggle(convention.name)">
         <i class="material-icons">expand_more</i>
@@ -34,7 +34,6 @@ function switch() {
         Location: {{convention.location}}
       </p>
       <p>
-        {{convention.description}}
       </p>
     </md-card-content>
     <md-card-actions layout="row" layout-align="end center" ng-show="collapse[convention.name]">

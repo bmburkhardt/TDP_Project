@@ -1,6 +1,6 @@
-app.controller('ConventionsController',function($scope){
+app.controller('ConventionsController',function($scope,$http){
 	$scope.message = 'Hello from ConventionsController';
-	$scope.conventions = [{
+	$scope.conventionsOld = [{
 		name : "First Convention",
 		location : "here",
 		description : "short Discription of a simple convention",
@@ -16,6 +16,15 @@ app.controller('ConventionsController',function($scope){
 		description : "short Discription jfa lha difjlasiafln flasjdfisj la ldijfasld saljl laisdjfl asdiia ldfia sjflidsjf lakhsdila l",
 		image: "/assets/convention.jpg"
 	}];
+
+	$http.get("/api/conventions")
+    .then(function(response) {
+        $scope.conventions = response.data;
+        $scope.statuscode = response.status;
+        $scope.statustext = response.statusText; 
+    });
+
+
 	$scope.data = [ "Item 1", "Item 2", "Item 3", "Item 4"];
 	$scope.collapse = [];
 	$scope.toggle = function(name){
