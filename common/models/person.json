@@ -97,7 +97,7 @@
   },
   "validations": [],
   "relations": {
-    "registrantId": {
+    "registrant": {
       "type": "belongsTo",
       "model": "registrant",
       "foreignKey": ""

@@ -9,7 +9,7 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "registrantId": {
+    "person": {
       "type": "belongsTo",
       "model": "person",
       "foreignKey": ""
