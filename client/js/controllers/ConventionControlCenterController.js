@@ -43,7 +43,23 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
     	location.reload();
 	};
 
+  $scope.showConfirm = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Are you sure you want to delete:')
+          .textContent('Sub Convention')
+          .ariaLabel('Delete SubConvention')
+          .targetEvent(ev)
+          .ok('Confirm')
+          .cancel('Cancel');
 
+    $mdDialog.show(confirm).then(function() {
+      /// Delete POST Request
+      $scope.status = 'You decided to get rid of your debt.';
+    }, function() {
+      /// Do Nothing.
+    });
+  };
 
 	$scope.showAdvanced = function(ev) {
     $mdDialog.show({
@@ -55,6 +71,7 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
       fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
     })
     .then(function(answer) {
+
       $scope.status = 'You said the information was "' + answer + '".';
     }, function() {
       $scope.status = 'You cancelled the dialog.';
@@ -73,6 +90,16 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
     $scope.answer = function(answer) {
       $mdDialog.hide(answer);
     };
+
+    $scope.newSubCon{
+      conventionId: "",
+      name: "",
+      time: "",
+      leader: "",
+      location: ""
+    }
+
+
   }
 
 });

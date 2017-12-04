@@ -1,8 +1,8 @@
-<md-dialog aria-label="Mango (Fruit)">
+<md-dialog aria-label="Add Sub Convention">
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Mango (Fruit)</h2>
+        <h2>Add Sub-Convention</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon aria-label="Close dialog"><i class="material-icons">close</i></md-icon>
@@ -11,7 +11,7 @@
     </md-toolbar>
 
     <md-dialog-content>
-      <div  layout-padding layout="column" class=" md-dialog-content">
+      <div  layout-padding layout="column" class=" md-dialog-content md-card">
             <md-input-container >
               <input ng-model="convention.name" type="text" ng-required="true" placeholder="Convention Name">
             </md-input-container>
@@ -39,11 +39,11 @@
 
     <md-dialog-actions layout="row">
       <span flex></span>
-      <md-button ng-click="answer('not useful')">
-       Not Useful
+      <md-button ng-click="answer(false)">
+        Cancel
       </md-button>
-      <md-button ng-click="answer('useful')">
-        Useful
+      <md-button ng-click="answer(true)">
+        Add
       </md-button>
     </md-dialog-actions>
   </form>
