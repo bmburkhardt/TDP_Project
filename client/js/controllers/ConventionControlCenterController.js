@@ -91,13 +91,13 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
       $mdDialog.hide(answer);
     };
 
-    $scope.newSubCon{
+    $scope.newSubCon = {
       conventionId: "",
       name: "",
       time: "",
       leader: "",
       location: ""
-    }
+    };
 
 
   }

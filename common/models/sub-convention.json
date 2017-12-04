@@ -50,7 +50,7 @@
     "registrantArr": {
       "type": "referencesMany",
       "model": "registrant",
-      "property": "registrantArrSubcon",
+      "property": "registrantArrCon",
       "options": {
         "validate": true,
         "forceId": true

@@ -7,9 +7,14 @@
     "validateUpsert": true
   },
   "properties": {
-    "attended": {
+    "register": {
       "type": "boolean",
-      "required": true,
+      "required": false,
+      "default": false
+    },
+    "attend": {
+      "type": "boolean",
+      "required": false,
       "default": false
     }
   },
@@ -18,11 +23,6 @@
     "person": {
       "type": "belongsTo",
       "model": "person",
-      "foreignKey": ""
-    },
-    "convention": {
-      "type": "belongsTo",
-      "model": "convention",
       "foreignKey": ""
     }
   },
