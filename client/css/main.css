@@ -71,6 +71,7 @@ html, body {
 }
 .md-card{
   max-width:600px;
+  width: 600px;
   height:auto;
 }
 

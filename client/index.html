@@ -11,7 +11,7 @@
 
     <!-- Include the AngularJS routing library -->
     <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
 
     <!-- Angular Material requires Angular.js Libraries -->
     
@@ -32,15 +32,16 @@
         <md-button class="md-raised" href="#/">
           Home
         </md-button>
-        <h1 flex md-truncate class="md-title text-center">Texas Democratic Party</h1>
-        <span class="fill-space"></span>
+        <span flex></span>
+        <h1  md-truncate class="md-title text-center">Texas Democratic Party</h1>
+        <span flex></span>
         <md-button class="md-raised" aria-label="More" href="#/admincontrols">
           AdminControls(TemporaryButton)
         </md-button>
       </div>
     </md-toolbar>
 
-    <div  layout="row">
+    <div  layout="column">
       <div  >
         <div ng-view></div>
       </div>

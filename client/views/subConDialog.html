@@ -1,0 +1,50 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Mango (Fruit)</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog"><i class="material-icons">close</i></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div  layout-padding layout="column" class=" md-dialog-content">
+            <md-input-container >
+              <input ng-model="convention.name" type="text" ng-required="true" placeholder="Convention Name">
+            </md-input-container>
+
+            <md-input-container > 
+              <md-datepicker ng-model="convention.date" placeholder="Enter date" ng-required="true" placeholder="Date" md-open-on-focus></md-datepicker>
+            </md-input-container>
+
+            <md-input-container>
+             <input ng-model="convention.time" aria-label type="time" ng-required="true" placeholder="Time">
+            </md-input-container>
+
+            <md-input-container> 
+              <input ng-model="convention.location" type="text" ng-required="true" placeholder="Location" >
+            </md-input-container>
+
+            <md-input-container>
+              <textarea ng-model="convention.description" aria-label md-maxlength="700" rows="10" ng-required="true" placeholder="Convention Description"></textarea>
+            </md-input-container>
+            <md-button class="md-icon-button material-icons md-primary" aria-label="More" ng-click="post()">
+                <md-icon md-font-set="material-icons">add_circle</md-icon>
+            </md-button>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="answer('not useful')">
+       Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')">
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

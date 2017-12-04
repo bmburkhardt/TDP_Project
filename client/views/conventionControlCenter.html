@@ -1,5 +1,5 @@
 
-<div align="center" style="-webkit-overflow-scrolling: auto;">
+<div align="center" layout="column" layout-align="center center" style="-webkit-overflow-scrolling: auto;">
   <md-card class="md-card">
       <md-card-header>
         <md-card-title>
@@ -14,30 +14,32 @@
         </md-card-title>       
       </md-card-header>
       <md-card-content>
-        <md-content class="md-no-momentum" ng-show="toggleNewConvention">
-            <md-input-container md-no-float class="md-block">
-              Convention Name: <input ng-model="convention.name" type="text" md-placeholder="Convention Name">
+        <form>
+        <md-content  layout-padding layout="column" ng-show="toggleNewConvention">
+            <md-input-container >
+              <input ng-model="convention.name" type="text" ng-required="true" placeholder="Convention Name">
             </md-input-container>
 
-            <md-input-container md-no-float class="md-block">
-              Convention Date: <md-datepicker ng-model="convention.date" md-placeholder="Enter date"></md-datepicker>
+            <md-input-container > 
+              <md-datepicker ng-model="convention.date" placeholder="Enter date" ng-required="true" placeholder="Date" md-open-on-focus></md-datepicker>
             </md-input-container>
 
-            <md-input-container md-no-float class="md-block">
-              Time: <input ng-model="user.time" type="time" ng-required="true">
+            <md-input-container>
+             <input ng-model="convention.time" aria-label type="time" ng-required="true" placeholder="Time">
             </md-input-container>
 
-            <md-input-container md-no-float class="md-block">
-              Convention Location: <input ng-model="convention.location" type="text" placeholder="Location" >
+            <md-input-container> 
+              <input ng-model="convention.location" type="text" ng-required="true" placeholder="Location" >
             </md-input-container>
 
-            <md-input-container md-no-float class="md-block">
-              Convention Description:<br><textarea ng-model="convention.description" md-maxlength="700" rows="10"></textarea>
+            <md-input-container>
+              <textarea ng-model="convention.description" aria-label md-maxlength="700" rows="10" ng-required="true" placeholder="Convention Description"></textarea>
             </md-input-container>
             <md-button class="md-icon-button material-icons md-primary" aria-label="More" ng-click="post()">
-                <i class="material-icons">add_circle</i>
+                <md-icon md-font-set="material-icons">add_circle</md-icon>
             </md-button>
         </md-content>
+      </form>
       </md-card-content>
   </md-card>
 
@@ -50,7 +52,7 @@
       </md-card-avatar>
       <md-card-header-text>
         <span class="left"> &nbsp;&nbsp;{{convention.name}}</span>
-        <span class="left"> &nbsp;&nbsp;{{convention.location}}&nbsp;|&nbsp;{{convention.date}}&nbsp;|&nbsp;{{convention.time}}&nbsp;&nbsp;</span>
+        <span class="left"> &nbsp;&nbsp;{{convention.location}}&nbsp;|&nbsp;{{convention.date | date: 'yyyy-mm-dd'}}&nbsp;|&nbsp;{{convention.time | date: 'hh:mm:a'}}&nbsp;&nbsp;</span>
       </md-card-header-text>
       <md-button class="md-icon-button md-primary" aria-label="More" ng-click="toggle(convention.name)">
         <i class="material-icons">expand_more</i>
@@ -65,12 +67,15 @@
     <md-card-content ng-show="collapse[convention.name]">
       <p>
         Location: {{convention.location}}<br>
-        Date:     {{convention.date}}<br>
-        Time:     {{convention.time}}<br>
+        Date:     {{convention.date | date: 'yyyy-mm-dd'}}<br>
+        Time:     {{convention.time | date: 'hh:mm:a'}}<br>
       </p>
         {{convention.description}}
       <p>
       </p>
+      <md-chips>
+        <md-chip ng-click="showAdvanced($event)">Hockey<md-icon md-font-set="material-icons">mode_edit</md-icon></md-chip>
+      </md-chips>
     </md-card-content>
     
     <md-card-actions layout="row" layout-align="end center" ng-show="collapse[convention.name]">

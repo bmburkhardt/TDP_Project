@@ -1,4 +1,4 @@
-app.controller('ConventionControlCenterController', function($scope,$http){
+app.controller('ConventionControlCenterController', function($scope,$http,$mdDialog){
 
 	$http.get("/api/conventions")
     .then(function(response) {
@@ -42,5 +42,37 @@ app.controller('ConventionControlCenterController', function($scope,$http){
     	$scope.res = $http.post('/api/conventions', $scope.convention);
     	location.reload();
 	};
+
+
+
+	$scope.showAdvanced = function(ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'views/subConDialog.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+    })
+    .then(function(answer) {
+      $scope.status = 'You said the information was "' + answer + '".';
+    }, function() {
+      $scope.status = 'You cancelled the dialog.';
+    });
+  };
+
+  function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+  }
 
 });
