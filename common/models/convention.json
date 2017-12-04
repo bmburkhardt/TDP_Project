@@ -26,6 +26,14 @@
     "date": {
       "type": "string",
       "required": true
+    },
+    "pictureName": {
+      "type": "string",
+      "required": true
+    },
+    "iconName": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
@@ -35,15 +43,14 @@
       "model": "subConvention",
       "foreignKey": "conventionId"
     },
-    "registrants": {
-      "type": "hasMany",
+    "registrantArr": {
+      "type": "referencesMany",
       "model": "registrant",
-      "foreignKey": ""
-    },
-    "person": {
-      "type": "hasMany",
-      "model": "person",
-      "foreignKey": ""
+      "property": "registrantArrCon",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
     }
   },
   "acls": [],
