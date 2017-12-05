@@ -23,15 +23,7 @@
       "type": "string",
       "required": true
     },
-    "pictureName": {
-      "type": "string",
-      "required": true
-    },
     "date": {
-      "type": "string",
-      "required": true
-    },
-    "iconName": {
       "type": "string",
       "required": true
     },
