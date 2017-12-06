@@ -58,7 +58,7 @@
         <span class="left"> &nbsp;&nbsp;{{convention.date | date: 'EEEE, MMMM d, y'}}&nbsp;|&nbsp;{{convention.time | date: 'hh:mm:a'}}&nbsp;|&nbsp;{{convention.location}}&nbsp;&nbsp;</span>
       </md-card-header-text>
       <md-button class="md-icon-button md-primary" aria-label="More" ng-click="toggle(convention.name)">
-        <i class="material-icons">expand_more</i>
+        <md-icon md-font-set="material-icons">expand_more</md-icon>
       </md-button>
     </md-card-header>
     <img ng-src="assets/betterConvention.jpg" class="md-card-image" ng-show="collapse[convention.name]">
@@ -72,18 +72,16 @@
         Location: {{convention.location}}<br>
         Date:     {{convention.date | date: 'EEEE, MMMM d, y'}}<br>
         Time:     {{convention.time | date: 'hh:mm:a'}}<br>
+        ID:       {{convention.id}}<br>
       </p>
         {{convention.description}}
       <p>
       </p>
-      <div ng-repeat="subConSing in subCons[convention.id]" >
-          SubConventions: {{subcConSing.name}}
-      </div>
+
       <md-chips>
-        <div ng-repeat="subConSing in subCons[convention.id]" >
-          SubConventions: {{subcConSing.name}}
+        <div >
           <md-chip ng-click="showConfirmSubCon($event,subConSing.id)">
-            {{subConSing.name}}<md-icon md-font-set="material-icons">delete</md-icon>
+            {{}}<md-icon md-font-set="material-icons">delete</md-icon>
           </md-chip>
         </div>
         
@@ -91,10 +89,12 @@
           <md-icon md-font-set="material-icons">add_circle</md-icon>
         </md-chip>
       </md-chips>
+
     </md-card-content>
     
     <md-card-actions layout="row" layout-align="end center" ng-show="collapse[convention.name]">
-      <md-button ng-click="showConfirmCon($event,convention.id);"><i class="material-icons">delete</i> Delete Convention</md-button>
+      <md-button ng-click="showConfirmCon($event,convention.id);">
+        <md-icon md-font-set="material-icons">delete</md-icon> Delete Convention</md-button>
     </md-card-actions>
   </md-card>
 

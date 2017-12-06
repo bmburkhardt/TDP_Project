@@ -1,12 +1,13 @@
 app.controller('ConventionControlCenterController', function($scope,$http,$mdDialog){
 
+
 	$http.get("/api/conventions")
   .then(function(response) {
       $scope.subCons = [];
       $scope.conventions = response.data;
       $scope.statuscode = response.status;
       $scope.statustext = response.statusText;
-      console.log($scope.conventions);
+      //console.log($scope.conventions);
       for(con in $scope.conventions){
         $http.get(`/api/conventions/${$scope.conventions[con].id}/subConventions`)
         .then(function(response) {
@@ -14,10 +15,16 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
             $scope.subCons[$scope.conventions[con].id] = response.data;
             $scope.statuscode = response.status;
             $scope.statustext = response.statusText; 
+            //console.log($scope.subCons[$scope.conventions[con].id]);
         });
       }
-      console.log($scope.subCons);
+
   });
+
+  $scope.getSubCon = (conID)=>{
+    console.log($scope.subCons[conID]);
+    return $scope.subCons[conID];
+  };
 
     $scope.collapse = [];
 	$scope.toggle = function(name){
@@ -151,51 +158,6 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
       conventionId: conID,
       registrantIds: []
     };
-
-    $scope.testCase[0] = [{"name":"hi"},{"name":"bye"}]; 
-
-
-    $scope.subCons[0] = [
-  {
-    "name": "SubCon1",
-    "time": "string",
-    "leader": "string",
-    "location": "string",
-    "date": "string",
-    "description": "string",
-    "id": "5a26dacb98af47009c8f32d8",
-    "conventionId": "5a2624b68e1a7b006c6d24cf",
-    "registrantIds": [
-      "string"
-    ]
-  },
-  {
-    "name": "SubCon2",
-    "time": "string",
-    "leader": "string",
-    "location": "string",
-    "date": "string",
-    "description": "string",
-    "id": "5a26dad498af47009c8f32d9",
-    "conventionId": "5a2624b68e1a7b006c6d24cf",
-    "registrantIds": [
-      "string"
-    ]
-  },
-  {
-    "name": "Simple Sub Con",
-    "time": "string",
-    "leader": "string",
-    "location": "string",
-    "date": "string",
-    "description": "string",
-    "id": "5a26dadd98af47009c8f32da",
-    "conventionId": "5a2624b68e1a7b006c6d24cf",
-    "registrantIds": [
-      "string"
-    ]
-  }];
-
 
   }
 
