@@ -1,4 +1,4 @@
-app.controller('ConventionsController',function($scope,$http){
+app.controller('ConventionsController',function($scope,$http,$mdDialog){
 	$scope.message = 'Hello from ConventionsController';
 
 	$http.get("/api/conventions")
@@ -28,7 +28,7 @@ app.controller('ConventionsController',function($scope,$http){
     $mdDialog.show({
       locals: {conID:conID},
       controller: DialogController,
-      templateUrl: 'views/subConDialog.html',
+      templateUrl: 'views/personDialog.html',
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose:true,
@@ -59,8 +59,9 @@ app.controller('ConventionsController',function($scope,$http){
     };
 
     $scope.post = function(){
-        $scope.res = $http.post('/api/subConventions', $scope.newSubCon);
-
+        $scope.res = $http.post(`/api/persons`, $scope.newPerson);
+        $scope.newRegistrant.personId = $scope.res.id;
+        $scope.res = $http.post(`/api/conventions/${conID}/registrantArr`, $scope.newRegistrant);
     };
 
     $scope.newPerson = {
@@ -81,11 +82,11 @@ app.controller('ConventionsController',function($scope,$http){
 	  cellPhone: undefined,
 	  phonePref: 0,
 	  ethnicity: undefined,
-	  lgbt: true,
-	  veteran: true,
+	  lgbt: false,
+	  veteran: false,
 	  disabled: undefined,
 	  caucusesAttending: undefined,
-	  attendedCountyConvention: true,
+	  attendedCountyConvention: false,
 	  registrantId: undefined
 	};
 
@@ -93,6 +94,8 @@ app.controller('ConventionsController',function($scope,$http){
 		register: true,
 		personId: undefined
 	};
+
+  $scope.genders = ["Male","Female"];
 
   }
 

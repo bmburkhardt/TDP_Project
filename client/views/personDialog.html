@@ -1,0 +1,126 @@
+<md-dialog aria-label="Add Information">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Sub-Convention</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">
+            <md-icon md-font-set="material-icons">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div  layout-padding layout="column" class=" md-dialog-content md-card">
+            <md-input-container >
+              <input ng-model="newPerson.firstName" type="text" ng-required="true" placeholder="First Name">
+            </md-input-container>
+
+            <md-input-container >
+              <input ng-model="newPerson.middleName" type="text" ng-required="true" placeholder="Middle Name">
+            </md-input-container>
+
+            <md-input-container >
+              <input ng-model="newPerson.lastName" type="text" ng-required="true" placeholder="Last Name">
+            </md-input-container>
+
+            <md-select ng-model="newPerson.gender" placeholder="Gender" class="md-no-underline">
+              <md-option value="male">Male</md-option>
+              <md-option value="female">Female</md-option>
+            </md-select>
+
+            <md-input-container >
+              <input ng-model="newPerson.age" type="number" ng-required="true" placeholder="Age">
+            </md-input-container>
+
+            <md-input-container >
+              <input ng-model="newPerson.senateDistrictConty" type="text" ng-required="true" placeholder="County">
+            </md-input-container>
+
+            <md-input-container >
+              <input ng-model="newPerson.email" type="email" ng-required="true" placeholder="eMail">
+            </md-input-container>
+
+            
+            
+            <md-input-container >
+              <input ng-model="newPerson.street" type="text" ng-required="true" placeholder="Street"><br>
+            </md-input-container>
+
+
+            <div layout="row">
+              <md-input-container flex >
+              <input ng-model="newPerson.city" type="text" ng-required="true" placeholder="City">
+              </md-input-container>
+              <md-input-container flex=30>
+              <input ng-model="newPerson.state" type="text" ng-required="true" placeholder="State">
+              </md-input-container>
+              <md-input-container flex=20 >
+              <input ng-model="newPerson.zipcode" type="text" ng-required="true" placeholder="Zip Code" ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+              </md-input-container>
+            </div>
+
+            <md-select ng-model="newPerson.presidentialPref" placeholder="Presidential Preference" class="md-no-underline">
+              <md-option value="Sanders">Sanders</md-option>
+              <md-option value="Clinton">Clinton</md-option>
+            </md-select>
+
+            <md-select ng-model="newPerson.delegateType" placeholder="Gender" class="md-no-underline">
+              <md-option value="male">Male</md-option>
+              <md-option value="female">Female</md-option>
+            </md-select>
+
+            <div layout="row">
+              <md-input-container flex >
+              <input ng-model="newPerson.homePhone" type="phone" ng-required="true" placeholder="Home Phone (###) ###-#### " ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" >
+              </md-input-container>
+              <md-input-container flex>
+              <input ng-model="newPerson.cellPhone" type="phone" ng-required="true" placeholder="Cell Phone (###) ###-#### " ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" >
+              </md-input-container>
+            </div>
+
+            <md-select ng-model="newPerson.ethnicity" placeholder="Ethnicity" class="md-no-underline">
+              <md-option value="N/A">No Response</md-option>
+            </md-select>
+
+            <md-switch ng-model="newPerson.lgbt" aria-label="LGBT Switch">
+              LGBT: {{ newPerson.lgbt }}
+            </md-switch>
+
+            <md-switch ng-model="newPerson.veteran" aria-label="Veteran Switch">
+              Veteran: {{ newPerson.veteran }}
+            </md-switch>
+
+            <md-switch ng-model="newPerson.disabled" aria-label="Disabled Switch">
+              Disabled: {{ newPerson.disabled }}
+            </md-switch>
+
+            
+
+            <md-select ng-model="newPerson.caucusesAttending" placeholder="Caucuses Attending" class="md-no-underline">
+              <md-option value="east">East</md-option>
+              <md-option value="west">West</md-option>
+            </md-select>
+
+
+            <md-switch ng-model="newPerson.attendedCountyConvention" aria-label="Attended County Convention">
+              Attended County Convention: {{ newPerson.attendedCountyConvention }}
+            </md-switch>
+
+
+                
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class="md-raised material-icons md-primary" aria-label="More" ng-click="answer(false)">
+          <md-icon md-font-set="material-icons">add_circle</md-icon> Register
+      </md-button>
+       <md-button class="md-raised material-icons md-primary" aria-label="More" ng-click="answer(true)">
+          <md-icon md-font-set="material-icons">add_circle</md-icon> Register and Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
