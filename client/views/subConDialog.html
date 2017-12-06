@@ -13,27 +13,24 @@
     <md-dialog-content>
       <div  layout-padding layout="column" class=" md-dialog-content md-card">
             <md-input-container >
-              
+              <input ng-model="newSubCon.name" type="text" ng-required="true" placeholder="SubCon Name">
             </md-input-container>
                 
             <md-input-container > 
-              <input ng-model="convention.name" type="text" ng-required="true" placeholder="Convention Name">
+              <input ng-model="newSubCon.leader" type="text" ng-required="true" placeholder="Leader">
             </md-input-container>
 
             <md-input-container>
-             <input ng-model="convention.time" aria-label type="time" ng-required="true" placeholder="Time">
+             <input ng-model="newSubCon.time" aria-label type="time" ng-required="true" placeholder="Time">
             </md-input-container>
 
             <md-input-container> 
-              <input ng-model="convention.location" type="text" ng-required="true" placeholder="Location" >
+              <input ng-model="newSubCon.location" type="text" ng-required="true" placeholder="Location" >
             </md-input-container>
 
             <md-input-container>
-              <textarea ng-model="convention.description" aria-label md-maxlength="700" rows="10" ng-required="true" placeholder="Convention Description"></textarea>
+              <textarea ng-model="newSubCon.description" aria-label md-maxlength="700" rows="5" ng-required="true" placeholder="Convention Description"></textarea>
             </md-input-container>
-            <md-button class="md-icon-button material-icons md-primary" aria-label="More" ng-click="post()">
-                <md-icon md-font-set="material-icons">add_circle</md-icon>
-            </md-button>
       </div>
     </md-dialog-content>
 
