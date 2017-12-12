@@ -1,5 +1,47 @@
 # TDP_Project
 
+Accessing Public Website
+========================
+
+	API url : ec2-18-216-8-189.us-east-2.compute.amazonaws.com/explorer
+
+	Website url : ec2-18-216-8-189.us-east-2.compute.amazonaws.com
+
+Installation and Usage on Local Machine
+=======================================
+
+Requirements:
+
+	1. Linux based OS (preferably Ubuntu)
+	2. Clone repository
+		2.1 https://github.com/bmburkhardt/TDP_Project.git
+	3. NodeJS and npm
+		3.1 sudo apt-get update
+		3.2 sudo apt install nodejs npm
+	4. MongoDB
+		4.1 Install using this tutorial:
+			https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu-16.04/
+	5. Loopback
+		5.1 cd to TDP_Project
+		5.2 sudo npm install loopback
+		5.3 sudo npm install
+		5.4 sudo service mongod start
+		5.5 sudo npm install --save loopback-connector-mongodb
+	6. Angular
+		6.1 sudo npm install --save angular
+
+Starting the service:
+
+	1. cd to TDP_Project
+	2. npm start
+
+Accessing the service:
+
+	1. API - open a web browser and enter the following url:
+		http://localhost:8080/explorer
+	2. Website - opena  web browser and enter the following url:
+		http://localhost:8080
+
 Model overview
 ==============
 
