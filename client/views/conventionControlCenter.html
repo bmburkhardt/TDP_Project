@@ -33,7 +33,7 @@
             </md-input-container>
 
             <md-input-container>
-              <textarea ng-model="convention.description" aria-label md-maxlength="700" rows="10" ng-required="true" placeholder="Convention Description"></textarea>
+              <textarea ng-model="convention.description" aria-label md-maxlength="700" rows="5" ng-required="true" placeholder="Convention Description"></textarea>
             </md-input-container>
             <md-button class="md-icon-button material-icons md-primary" aria-label="More" ng-click="post()">
                 <md-icon md-font-set="material-icons">add_circle</md-icon>
@@ -45,17 +45,20 @@
 
 
 	<md-card class="md-card" ng-repeat="convention in conventions">
-    <script>collapse[convention.name]=false;</script>
+    <script>
+      collapse[convention.name]=false; 
+      window.alert("hello");
+    </script>
     <md-card-header>
       <md-card-avatar>
         <img src="assets/icons/D-circle-logo-favicon.png">
       </md-card-avatar>
       <md-card-header-text>
         <span class="left"> &nbsp;&nbsp;{{convention.name}}</span>
-        <span class="left"> &nbsp;&nbsp;{{convention.location}}&nbsp;|&nbsp;{{convention.date | date: 'yyyy-mm-dd'}}&nbsp;|&nbsp;{{convention.time | date: 'hh:mm:a'}}&nbsp;&nbsp;</span>
+        <span class="left"> &nbsp;&nbsp;{{convention.date | date: 'EEEE, MMMM d, y'}}&nbsp;|&nbsp;{{convention.time | date: 'hh:mm:a'}}&nbsp;|&nbsp;{{convention.location}}&nbsp;&nbsp;</span>
       </md-card-header-text>
       <md-button class="md-icon-button md-primary" aria-label="More" ng-click="toggle(convention.name)">
-        <i class="material-icons">expand_more</i>
+        <md-icon md-font-set="material-icons">expand_more</md-icon>
       </md-button>
     </md-card-header>
     <img ng-src="assets/betterConvention.jpg" class="md-card-image" ng-show="collapse[convention.name]">
@@ -67,24 +70,31 @@
     <md-card-content ng-show="collapse[convention.name]">
       <p>
         Location: {{convention.location}}<br>
-        Date:     {{convention.date | date: 'yyyy-mm-dd'}}<br>
+        Date:     {{convention.date | date: 'EEEE, MMMM d, y'}}<br>
         Time:     {{convention.time | date: 'hh:mm:a'}}<br>
+        ID:       {{convention.id}}<br>
       </p>
         {{convention.description}}
       <p>
       </p>
+
       <md-chips>
-        <md-chip ng-click="showConfirm($event)">
-          Hockey<md-icon md-font-set="material-icons">delete</md-icon>
-        </md-chip>
-        <md-chip ng-click="showAdvanced($event)">
+        <div >
+          <md-chip ng-click="showConfirmSubCon($event,subConSing.id)">
+            {{}}<md-icon md-font-set="material-icons">delete</md-icon>
+          </md-chip>
+        </div>
+        
+        <md-chip ng-click="showAdvanced($event,convention.id)">
           <md-icon md-font-set="material-icons">add_circle</md-icon>
         </md-chip>
       </md-chips>
+
     </md-card-content>
     
     <md-card-actions layout="row" layout-align="end center" ng-show="collapse[convention.name]">
-      <md-button ng-click="delete(convention.id)"><i class="material-icons">delete</i> Delete Convention</md-button>
+      <md-button ng-click="showConfirmCon($event,convention.id);">
+        <md-icon md-font-set="material-icons">delete</md-icon> Delete Convention</md-button>
     </md-card-actions>
   </md-card>
 

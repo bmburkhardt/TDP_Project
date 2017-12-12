@@ -29,15 +29,15 @@
 
     <md-toolbar >
       <div class="md-toolbar-tools">
-        <md-button class="md-raised" href="#/">
-          Home
-        </md-button>
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.showToolbarMenu($event, ctrl.settings)" href="#/">
+          <md-icon md-font-set="material-icons">home</md-icon>
+       </md-button>
         <span flex></span>
         <h1 layout="center" md-truncate class="md-title text-center">Texas Democratic Party</h1>
         <span flex></span>
-        <md-button class="md-raised" aria-label="More" href="#/admincontrols">
-          AdminControls(TemporaryButton)
-        </md-button>
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.showToolbarMenu($event, ctrl.settings)" href="#/admincontrols">
+          <md-icon md-font-set="material-icons">account_circle</md-icon>
+       </md-button>
       </div>
     </md-toolbar>
 
@@ -58,8 +58,8 @@
     <script src="js/controllers/SignUpController.js"></script>
     <script src="js/controllers/ConventionControlCenterController.js"></script>
     <script src="js/controllers/AdminControlsController.js"></script>
-    <script src="js/controllers/DialogController.js"></script>
     <!-- Services -->
+    <script src="js/services/AccountService.js"></script>
 
   </body>
       

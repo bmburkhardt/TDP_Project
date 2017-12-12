@@ -1,11 +1,30 @@
 app.controller('ConventionControlCenterController', function($scope,$http,$mdDialog){
 
+
 	$http.get("/api/conventions")
-    .then(function(response) {
-        $scope.conventions = response.data;
-        $scope.statuscode = response.status;
-        $scope.statustext = response.statusText; 
-    });
+  .then(function(response) {
+      $scope.subCons = [];
+      $scope.conventions = response.data;
+      $scope.statuscode = response.status;
+      $scope.statustext = response.statusText;
+      //console.log($scope.conventions);
+      for(con in $scope.conventions){
+        $http.get(`/api/conventions/${$scope.conventions[con].id}/subConventions`)
+        .then(function(response) {
+            
+            $scope.subCons[$scope.conventions[con].id] = response.data;
+            $scope.statuscode = response.status;
+            $scope.statustext = response.statusText; 
+            //console.log($scope.subCons[$scope.conventions[con].id]);
+        });
+      }
+
+  });
+
+  $scope.getSubCon = (conID)=>{
+    console.log($scope.subCons[conID]);
+    return $scope.subCons[conID];
+  };
 
     $scope.collapse = [];
 	$scope.toggle = function(name){
@@ -14,15 +33,7 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
 	$scope.toggleCollapse = true;
 
 
-	$scope.delete = function(id){
-		$http.delete(`/api/conventions/${id}`)
-	    .then(function(response) {
-	        $scope.conventions = response.data;
-	        $scope.statuscode = response.status;
-	        $scope.statustext = response.statusText; 
-	    });
-	    location.reload();
-	};
+
 	$scope.toggleCon = function(){
 		$scope.toggleNewConvention = !($scope.toggleNewConvention);
 	};
@@ -30,20 +41,52 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
 
 	$scope.convention = {
       "name": undefined,
-	  "time": undefined,
-	  "location": undefined,
-	  "description": undefined,
-	  "date": undefined
+  	  "time": undefined,
+  	  "location": undefined,
+  	  "description": undefined,
+  	  "date": undefined,
+      "registrantIds":[]
     };
 
+    $scope.getSubCons = function(conID){
+        $http.get(`/api/conventions/${conID}/subConventions`)
+        .then(function(response) {
+            $scope.subCon[conID] = response.data;
+            $scope.statuscode = response.status;
+            $scope.statustext = response.statusText; 
+        });
+    };
 
 
     $scope.post = function(){
     	$scope.res = $http.post('/api/conventions', $scope.convention);
     	location.reload();
-	};
+	 };
 
-  $scope.showConfirm = function(ev) {
+  $scope.showConfirmCon = function(ev,conID) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Are you sure you want to delete:')
+          .textContent('Convention')
+          .ariaLabel('Delete SubConvention')
+          .targetEvent(ev)
+          .ok('Confirm')
+          .cancel('Cancel');
+
+    $mdDialog.show(confirm).then(function() {
+      $http.delete(`/api/conventions/${conID}`)
+      .then(function(response) {
+          $scope.conventions = response.data;
+          $scope.statuscode = response.status;
+          $scope.statustext = response.statusText; 
+      });
+      location.reload();
+    }, function() {
+      /// Do Nothing.
+    });
+  };
+
+  $scope.showConfirmSubCon = function(ev,subConID) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Are you sure you want to delete:')
@@ -54,15 +97,21 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
           .cancel('Cancel');
 
     $mdDialog.show(confirm).then(function() {
-      /// Delete POST Request
-      $scope.status = 'You decided to get rid of your debt.';
+      $http.delete(`/api/subConventions/${subConID}`)
+      .then(function(response) {
+          $scope.conventions = response.data;
+          $scope.statuscode = response.status;
+          $scope.statustext = response.statusText; 
+      });
+      location.reload();
     }, function() {
       /// Do Nothing.
     });
   };
 
-	$scope.showAdvanced = function(ev) {
+	$scope.showAdvanced = function(ev,conID) {
     $mdDialog.show({
+      locals: {conID:conID},
       controller: DialogController,
       templateUrl: 'views/subConDialog.html',
       parent: angular.element(document.body),
@@ -71,14 +120,13 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
       fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
     })
     .then(function(answer) {
-
-      $scope.status = 'You said the information was "' + answer + '".';
+        location.reload();
     }, function() {
       $scope.status = 'You cancelled the dialog.';
     });
   };
 
-  function DialogController($scope, $mdDialog) {
+  function DialogController($scope, $mdDialog,$http,conID) {
     $scope.hide = function() {
       $mdDialog.hide();
     };
@@ -88,17 +136,28 @@ app.controller('ConventionControlCenterController', function($scope,$http,$mdDia
     };
 
     $scope.answer = function(answer) {
+      if(answer){
+        $scope.post();
+      }
+
       $mdDialog.hide(answer);
     };
 
-    $scope.newSubCon = {
-      conventionId: "",
-      name: "",
-      time: "",
-      leader: "",
-      location: ""
+    $scope.post = function(){
+        $scope.res = $http.post('/api/subConventions', $scope.newSubCon);
+
     };
 
+    $scope.newSubCon = {
+      name: undefined,
+      leader: undefined,
+      time: undefined,
+      location: undefined,
+      date: "Same as Convention",
+      description: undefined,
+      conventionId: conID,
+      registrantIds: []
+    };
 
   }
 
