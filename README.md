@@ -42,6 +42,12 @@ Accessing the service:
 	2. Website - opena  web browser and enter the following url:
 		http://localhost:8080
 
+Scanner Application:
+	
+	1. Download android studio
+	2. Open project in scannerTest folder
+
+	
 Model overview
 ==============
 
