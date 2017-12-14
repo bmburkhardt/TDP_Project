@@ -39,7 +39,7 @@ Accessing the service:
 
 	1. API - open a web browser and enter the following url:
 		http://localhost:8080/explorer
-	2. Website - opena  web browser and enter the following url:
+	2. Website - open a web browser and enter the following url:
 		http://localhost:8080
 
 Scanner Application:
@@ -47,7 +47,7 @@ Scanner Application:
 	1. Download android studio
 	2. Open project in scannerTest folder
 
-	
+
 Model overview
 ==============
 
